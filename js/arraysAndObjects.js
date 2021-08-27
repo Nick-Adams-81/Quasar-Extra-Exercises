@@ -77,8 +77,32 @@ console.log(isAvgWhole(array2));
  * Examples
  * >> sortDrinkByPrice(drinks) ➞ [{name: "lime", price: 10}, {name: "lemonade", price: 50}]
  */
+function sortDrinksByPrice(arr) {
+    var sortedArr = arr.sort(function(a, b){
+        return a.price - b.price
+        })
+    console.log(sortedArr)
+}
+var item1 = {
+    name: 'lime',
+    price: 20
+}
+var item2 = {
+    name: 'lemon',
+    price: 12
+}
+var item3 = {
+    name: 'pecan',
+    price: 25
+}
+var item4 = {
+    name: 'apple',
+    price: 30
+}
 
 
+someArr2 = [item1, item2, item3, item4]
+sortDrinksByPrice(someArr2)
 /**
  * Scrabble Hand
  * Given an array of scrabble tiles, create a function that outputs the maximum possible score a player can achieve by summing up the total number of points for all the tiles in their hand. Each hand contains 7 scrabble tiles.
