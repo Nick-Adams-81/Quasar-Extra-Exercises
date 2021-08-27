@@ -10,8 +10,12 @@
  * Notes
  * All test arrays will have at least one element and are valid.
  */
+function minMax(input) {
+    return [Math.min.apply(Math, input), Math.max.apply(Math, input)];
+}
 
-
+var someArr = [5, 2, 1, 7, 12];
+console.log(minMax(someArr));
 /**
  * Filter out Strings from an Array
  * Create a function named filterArray that takes an array of non-negative integers and strings and return a new array without the strings.
