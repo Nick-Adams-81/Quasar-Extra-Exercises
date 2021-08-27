@@ -32,8 +32,13 @@ console.log(minMax(someArr));
  * Numbers in the array should not repeat.
  * The original order must be maintained.
  */
+function filterArray(arr) {
+        return typeof arr == 'number';
 
-
+}
+array = [1, 3, '6', 9, 'asdf', 'hello']
+console.log(array)
+console.log(array.filter(filterArray));
 /**
  * Is the Average of All Elements a Whole Number?
  * Create a function named isAvgWhole that takes an array as an argument and returns true or false depending on whether the average of all elements in the array is a whole number or not.
