@@ -51,8 +51,18 @@ console.log(array.filter(filterArray));
  * >> isAvgWhole([1, 1, 1]) ➞ true
  * >> isAvgWhole([9, 2, 2, 5]) ➞ false
  */
+function isAvgWhole(arr) {
+   var sum = 0;
+   for(var i = 0; i < arr.length; i++) {
+       sum += parseInt(arr[i], 10)
+   }
+   var avg = sum / arr.length;
+  return avg % 2 === 0
 
-
+}
+var array2 = [1, 3];
+console.log(array2)
+console.log(isAvgWhole(array2));
 /**
  * Drink Sorting
  * You will be given an array of drinks, with each drink being an object with two properties: name and price.
