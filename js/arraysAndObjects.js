@@ -14,8 +14,8 @@ function minMax(input) {
     return [Math.min.apply(Math, input), Math.max.apply(Math, input)];
 }
 
-var someArr = [5, 2, 1, 7, 12];
-console.log(minMax(someArr));
+// var someArr = [5, 2, 1, 7, 12];
+// console.log(minMax(someArr));
 /**
  * Filter out Strings from an Array
  * Create a function named filterArray that takes an array of non-negative integers and strings and return a new array without the strings.
@@ -33,12 +33,13 @@ console.log(minMax(someArr));
  * The original order must be maintained.
  */
 function filterArray(arr) {
-        return typeof arr == 'number';
+    return typeof arr == 'number';
 
 }
-array = [1, 3, '6', 9, 'asdf', 'hello']
-console.log(array)
-console.log(array.filter(filterArray));
+
+// array = [1, 3, '6', 9, 'asdf', 'hello']
+// console.log(array)
+// console.log(array.filter(filterArray));
 /**
  * Is the Average of All Elements a Whole Number?
  * Create a function named isAvgWhole that takes an array as an argument and returns true or false depending on whether the average of all elements in the array is a whole number or not.
@@ -52,17 +53,18 @@ console.log(array.filter(filterArray));
  * >> isAvgWhole([9, 2, 2, 5]) ➞ false
  */
 function isAvgWhole(arr) {
-   var sum = 0;
-   for(var i = 0; i < arr.length; i++) {
-       sum += parseInt(arr[i], 10)
-   }
-   var avg = sum / arr.length;
-  return avg % 2 === 0
+    var sum = 0;
+    for (var i = 0; i < arr.length; i++) {
+        sum += parseInt(arr[i], 10)
+    }
+    var avg = sum / arr.length;
+    return avg % 2 === 0
 
 }
-var array2 = [1, 3];
-console.log(array2)
-console.log(isAvgWhole(array2));
+
+// var array2 = [1, 3];
+// console.log(array2)
+// console.log(isAvgWhole(array2));
 /**
  * Drink Sorting
  * You will be given an array of drinks, with each drink being an object with two properties: name and price.
@@ -78,11 +80,12 @@ console.log(isAvgWhole(array2));
  * >> sortDrinkByPrice(drinks) ➞ [{name: "lime", price: 10}, {name: "lemonade", price: 50}]
  */
 function sortDrinksByPrice(arr) {
-    var sortedArr = arr.sort(function(a, b){
+    var sortedArr = arr.sort(function (a, b) {
         return a.price - b.price
-        })
-    console.log(sortedArr)
+    })
+    //console.log(sortedArr)
 }
+
 var item1 = {
     name: 'lime',
     price: 20
@@ -101,8 +104,8 @@ var item4 = {
 }
 
 
-someArr2 = [item1, item2, item3, item4]
-sortDrinksByPrice(someArr2)
+// someArr2 = [item1, item2, item3, item4]
+// sortDrinksByPrice(someArr2)
 /**
  * Scrabble Hand
  * Given an array of scrabble tiles, create a function that outputs the maximum possible score a player can achieve by summing up the total number of points for all the tiles in their hand. Each hand contains 7 scrabble tiles.
@@ -147,7 +150,68 @@ sortDrinksByPrice(someArr2)
  * Each tile is represented as an object with two keys: tile and score.
  */
 
+var maximumScore = ([
+    {tile: "B", score: 2},
+    {tile: "V", score: 4},
+    {tile: "F", score: 4},
+    {tile: "U", score: 1},
+    {tile: "D", score: 2},
+    {tile: "O", score: 1},
+    {tile: "U", score: 1}
+])
+var tiles = [
+    {
+        tile: 'A',
+        score: 1
+    },
+    {
+        tile: 'B',
+        score: 2
+    },
+    {
+        tile: 'C',
+        score: 3
+    },
+    {
+        tile: 'D',
+        score: 4
+    },
+    {
+        tile: 'E',
+        score: 5
+    },
+    {
+        tile: 'F',
+        score: 6
+    },
+    {
+        tile: 'G',
+        score: 7
+    },
+    {
+        tile: 'H',
+        score: 8
+    },
+    {
+        tile: 'I',
+        score: 9
+    },
+    {
+        tile: 'J',
+        score: 10
+    }
+]
 
+function maxScore(arr) {
+    var total = 0;
+    for (var i = 0; i < 7; i++) {
+        total = total + arr[i].score
+    }
+    return total;
+}
+
+// console.log(maxScore(tiles));
+// console.log(maxScore(maximumScore));
 /**
  * Converting Objects to Arrays
  * Write a function named toArray that converts an object into an array, where each element represents a key-value pair in the form of an array.
@@ -176,8 +240,16 @@ sortDrinksByPrice(someArr2)
  * Notes
  * Notice that num is also included in the returned array.
  */
+function arrayOfMultiples(num, len) {
+    var arr = []
+    for (var i = 1; i <= len; i++) {
+        var total = num * [i]
+        arr.push(total);
+    }
+    return arr;
+}
 
-
+//console.log(arrayOfMultiples(12, 10));
 /**
  * Get Sum of People's Budget
  * Create the function named getBudgets that takes an array with objects and returns the sum of people's budgets.
@@ -196,7 +268,20 @@ sortDrinksByPrice(someArr2)
  *    ]) ➞ 62600
  */
 
+var people = ([
+    {name: "John", age: 21, budget: 29000},
+    {name: "Steve", age: 32, budget: 32000},
+    {name: "Martin", age: 16, budget: 1600}
+])
 
+
+function getBudgets(items) {
+    for(let i = 0; i < items.length; i++) {
+        var total = items[0].budget + items[1].budget + items[2].budget
+    }
+    return total
+}
+console.log(getBudgets(people));
 /**
  * Special Arrays
  * An array is special if every even index contains an even number and every odd index contains an odd number.
@@ -211,7 +296,9 @@ sortDrinksByPrice(someArr2)
  * >> isSpecialArray([2, 7, 8, 8, 6, 1, 6, 3]) ➞ false
  *    // Index 3 has an even number 8.
  */
-
+function isSpecialArray() {
+    
+}
 
 /**
  * Remove Duplicates from an Array
