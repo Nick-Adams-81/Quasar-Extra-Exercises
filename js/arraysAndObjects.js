@@ -210,8 +210,8 @@ function maxScore(arr) {
     return total;
 }
 
-// console.log(maxScore(tiles));
-// console.log(maxScore(maximumScore));
+console.log(maxScore(tiles));
+console.log(maxScore(maximumScore));
 /**
  * Converting Objects to Arrays
  * Write a function named toArray that converts an object into an array, where each element represents a key-value pair in the form of an array.
