@@ -371,8 +371,22 @@ mapping(['a', 'b', 'c', 'x', 'y', 'z']);
  * >> tpChecker({ people: 3, tp: 20 }) ➞ "Your TP will last 58 days, no need to panic!"
  * >> tpChecker({ people: 4, tp: 12 }) ➞ "Your TP will last 26 days, no need to panic!"
  */
+function tpChecker(arg) {
+    var newTp = arg.tp * 500
+    var peopleUsedTp = arg.people * 57
+    var tpLastsHowManyDays = Math.round(newTp / peopleUsedTp)
+    if(tpLastsHowManyDays < 10) {
+        return ('Your tp will only last ' + tpLastsHowManyDays + ' more days, buy more now!')
+    } else {
+        return ('Your tp will last ' + tpLastsHowManyDays + ' more days, no need to get more')
+    }
+}
 
-
+var tpObj = {
+    people: 10,
+    tp: 50
+}
+console.log(tpChecker(tpObj));
 /**
  * Get Student Top Notes
  * Create a function named getStudentTopNotes that takes an array of students and returns an array of their top notes.
