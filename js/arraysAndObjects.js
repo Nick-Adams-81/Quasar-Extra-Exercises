@@ -249,7 +249,7 @@ function arrayOfMultiples(num, len) {
     return arr;
 }
 
-//console.log(arrayOfMultiples(12, 10));
+console.log(arrayOfMultiples(12, 10));
 /**
  * Get Sum of People's Budget
  * Create the function named getBudgets that takes an array with objects and returns the sum of people's budgets.
@@ -296,10 +296,17 @@ console.log(getBudgets(people));
  * >> isSpecialArray([2, 7, 8, 8, 6, 1, 6, 3]) ➞ false
  *    // Index 3 has an even number 8.
  */
-function isSpecialArray() {
-    
-}
 
+// var arr = [2, 7, 4, 9, 1, 6, 1, 6, 3];
+// function isSpecialArray(input) {
+//     for(var i = 0; i < input.length; i++){
+//        console.log(input[i] % 2 === 0);
+//
+//     }
+//
+// }
+//
+// isSpecialArray(arr);
 /**
  * Remove Duplicates from an Array
  * Create a function named removeDuplicates that takes an array of items, removes all duplicate items and returns a new array in the same sequential order as the old array (minus duplicates).
@@ -315,7 +322,15 @@ function isSpecialArray() {
  * Each array item is unique.
  */
 
+var someArray = [1, 0, 1, 0];
+function removeDuplicates(array) {
+    var arr = []
+    return array.filter(function(item) {
+        return arr.hasOwnProperty(item) ? false : (arr[item] = true)
+    })
+}
 
+console.log(removeDuplicates(someArray));
 /**
  * Lowercase and Uppercase Map
  * Create a function named mapping that creates an object with each (key, value) pair being the (lower case, upper case) versions of a letter, respectively.
@@ -329,7 +344,13 @@ function isSpecialArray() {
  * Notes
  * All of the letters in the input list will always be lowercase.
  */
+function mapping(input) {
+   input.forEach(function(newInput) {
+       console.log( newInput + ": " + newInput.toUpperCase())
+   })
+}
 
+mapping(['a', 'b', 'c', 'x', 'y', 'z']);
 
 /**
  * Can You Spare a Square?
