@@ -212,6 +212,7 @@ function maxScore(arr) {
 
 console.log(maxScore(tiles));
 console.log(maxScore(maximumScore));
+
 /**
  * Converting Objects to Arrays
  * Write a function named toArray that converts an object into an array, where each element represents a key-value pair in the form of an array.
@@ -276,11 +277,12 @@ var people = ([
 
 
 function getBudgets(items) {
-    for(let i = 0; i < items.length; i++) {
+    for (let i = 0; i < items.length; i++) {
         var total = items[0].budget + items[1].budget + items[2].budget
     }
     return total
 }
+
 console.log(getBudgets(people));
 /**
  * Special Arrays
@@ -323,14 +325,16 @@ console.log(getBudgets(people));
  */
 
 var someArray = [1, 0, 1, 0];
+
 function removeDuplicates(array) {
     var arr = []
-    return array.filter(function(item) {
+    return array.filter(function (item) {
         return arr.hasOwnProperty(item) ? false : (arr[item] = true)
     })
 }
 
 console.log(removeDuplicates(someArray));
+
 /**
  * Lowercase and Uppercase Map
  * Create a function named mapping that creates an object with each (key, value) pair being the (lower case, upper case) versions of a letter, respectively.
@@ -345,9 +349,9 @@ console.log(removeDuplicates(someArray));
  * All of the letters in the input list will always be lowercase.
  */
 function mapping(input) {
-   input.forEach(function(newInput) {
-       console.log( newInput + ": " + newInput.toUpperCase())
-   })
+    input.forEach(function (newInput) {
+        console.log(newInput + ": " + newInput.toUpperCase())
+    })
 }
 
 mapping(['a', 'b', 'c', 'x', 'y', 'z']);
@@ -375,7 +379,7 @@ function tpChecker(arg) {
     var newTp = arg.tp * 500
     var peopleUsedTp = arg.people * 57
     var tpLastsHowManyDays = Math.round(newTp / peopleUsedTp)
-    if(tpLastsHowManyDays < 10) {
+    if (tpLastsHowManyDays < 10) {
         return 'Your tp will only last ' + tpLastsHowManyDays + ' more days, buy more now!'
     } else {
         return 'Your tp will last ' + tpLastsHowManyDays + ' more days, no need to get more'
@@ -388,64 +392,61 @@ var tpObj = {
 }
 console.log(tpChecker(tpObj));
 
- //* Get Student Top Notes
- //* Create a function named getStudentTopNotes that takes an array of students and returns an array of their top notes.
- //* If the student does not have notes then let's assume their top note is equal to 0.
+//* Get Student Top Notes
+//* Create a function named getStudentTopNotes that takes an array of students and returns an array of their top notes.
+//* If the student does not have notes then let's assume their top note is equal to 0.
 
- //* Examples
+//* Examples
 
- var studentTopNotes = [
-       {
-          id: 1,
-          name: "Jacek",
-          notes: [5, 3, 4, 2, 5, 5]
-        },
-       {
-          id: 2,
-          name: "Ewa",
-          notes: [2, 3, 3, 3, 2, 5]
-        },
-       {
-          id: 3,
-          name: "Zygmunt",
-          notes: [2, 2, 4, 4, 3, 3]
-        }
-     ]
+var studentTopNotes = [
+    {
+        id: 1,
+        name: "Jacek",
+        notes: [5, 3, 4, 2, 5, 5]
+    },
+    {
+        id: 2,
+        name: "Ewa",
+        notes: [2, 3, 3, 3, 2, 5]
+    },
+    {
+        id: 3,
+        name: "Zygmunt",
+        notes: [2, 2, 4, 4, 3, 3]
+    }
+]
 
 function getStudentsTopNotes(arg) {
-     arg.forEach(function (note) {
-         //console.log(note.notes)
-         // notes is the array we want to work with
-         var notes = note.notes
-         console.log(notes)
+    arg.forEach(function (note) {
+        // notes is the array we want to work with
+        var notes = note.notes
+        var topNote = Math.max(...notes)
+        console.log(topNote)
+    })
 
-         for(let i = 0; i < notes.length; i++) {
-             //console.log(notes[i])
-         }
-     })
 }
 
-getStudentsTopNotes(studentTopNotes)
+getStudentsTopNotes(studentTopNotes);
 
 
- // * The Frugal Gentleman
- // * Atticus has been invited to a dinner party, and he decides to purchase a bottle of wine. However, he has little knowledge of how to choose a good bottle. Being a very frugal gentleman (yet disliking looking like a cheapskate), he decides to use a very simple rule. In any selection of two or more wines, he will always buy the second-cheapest.
- // *
- // * Given an array of wine objects, write a function named chosenWine that returns the name of the wine he will buy for the party. If given an empty array, return null. If given an array of only one, Atticus will buy that wine.
- // *
- // * Examples
- // *
- // * >> chosenWine([
- // *        { name: "Wine A", price: 8.99 },
- // *        { name: "Wine 32", price: 13.99 },
- // *        { name: "Wine 9", price: 10.99 }
- // *    ]) ➞ "Wine 9"
- // * >> chosenWine([{ name: "Wine A", price: 8.99 }]) ➞ "Wine A"
- // * >> chosenWine([]) ➞ null
- // *
- // * Notes
- // * All wines will be different prices, so there is no confusion in the ordering.
- // */
+// * The Frugal Gentleman
+// * Atticus has been invited to a dinner party, and he decides to purchase a bottle of wine. However, he has little knowledge of how to choose a good bottle. Being a very frugal gentleman (yet disliking looking like a cheapskate), he decides to use a very simple rule. In any selection of two or more wines, he will always buy the second-cheapest.
+// *
+// * Given an array of wine objects, write a function named chosenWine that returns the name of the wine he will buy for the party. If given an empty array, return null. If given an array of only one, Atticus will buy that wine.
+// *
+// * Examples
+// *
+// * >> chosenWine([
+// *        { name: "Wine A", price: 8.99 },
+// *        { name: "Wine 32", price: 13.99 },
+// *        { name: "Wine 9", price: 10.99 }
+// *    ]) ➞ "Wine 9"
+// * >> chosenWine([{ name: "Wine A", price: 8.99 }]) ➞ "Wine A"
+// * >> chosenWine([]) ➞ null
+// *
+// * Notes
+// * All wines will be different prices, so there is no confusion in the ordering.
+// */
 
 
 /**
