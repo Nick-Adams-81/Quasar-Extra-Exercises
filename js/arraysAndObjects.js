@@ -376,9 +376,9 @@ function tpChecker(arg) {
     var peopleUsedTp = arg.people * 57
     var tpLastsHowManyDays = Math.round(newTp / peopleUsedTp)
     if(tpLastsHowManyDays < 10) {
-        return ('Your tp will only last ' + tpLastsHowManyDays + ' more days, buy more now!')
+        return 'Your tp will only last ' + tpLastsHowManyDays + ' more days, buy more now!'
     } else {
-        return ('Your tp will last ' + tpLastsHowManyDays + ' more days, no need to get more')
+        return 'Your tp will last ' + tpLastsHowManyDays + ' more days, no need to get more'
     }
 }
 
@@ -387,52 +387,65 @@ var tpObj = {
     tp: 50
 }
 console.log(tpChecker(tpObj));
-/**
- * Get Student Top Notes
- * Create a function named getStudentTopNotes that takes an array of students and returns an array of their top notes.
- * If the student does not have notes then let's assume their top note is equal to 0.
- *
- * Examples
- *
- * >> getStudentTopNotes([
- *      {
- *         id: 1,
- *         name: "Jacek",
- *         notes: [5, 3, 4, 2, 5, 5]
- *       },
- *      {
- *         id: 2,
- *         name: "Ewa",
- *         notes: [2, 3, 3, 3, 2, 5]
- *       },
- *      {
- *         id: 3,
- *         name: "Zygmunt",
- *         notes: [2, 2, 4, 4, 3, 3]
- *       }
- *    ]) ➞ [5, 5, 4]
- */
+
+ //* Get Student Top Notes
+ //* Create a function named getStudentTopNotes that takes an array of students and returns an array of their top notes.
+ //* If the student does not have notes then let's assume their top note is equal to 0.
+
+ //* Examples
+
+ var studentTopNotes = [
+       {
+          id: 1,
+          name: "Jacek",
+          notes: [5, 3, 4, 2, 5, 5]
+        },
+       {
+          id: 2,
+          name: "Ewa",
+          notes: [2, 3, 3, 3, 2, 5]
+        },
+       {
+          id: 3,
+          name: "Zygmunt",
+          notes: [2, 2, 4, 4, 3, 3]
+        }
+     ]
+
+function getStudentsTopNotes(arg) {
+     arg.forEach(function (note) {
+         //console.log(note.notes)
+         // notes is the array we want to work with
+         var notes = note.notes
+         console.log(notes)
+
+         for(let i = 0; i < notes.length; i++) {
+             //console.log(notes[i])
+         }
+     })
+}
+
+getStudentsTopNotes(studentTopNotes)
 
 
-/**
- * The Frugal Gentleman
- * Atticus has been invited to a dinner party, and he decides to purchase a bottle of wine. However, he has little knowledge of how to choose a good bottle. Being a very frugal gentleman (yet disliking looking like a cheapskate), he decides to use a very simple rule. In any selection of two or more wines, he will always buy the second-cheapest.
- *
- * Given an array of wine objects, write a function named chosenWine that returns the name of the wine he will buy for the party. If given an empty array, return null. If given an array of only one, Atticus will buy that wine.
- *
- * Examples
- *
- * >> chosenWine([
- *        { name: "Wine A", price: 8.99 },
- *        { name: "Wine 32", price: 13.99 },
- *        { name: "Wine 9", price: 10.99 }
- *    ]) ➞ "Wine 9"
- * >> chosenWine([{ name: "Wine A", price: 8.99 }]) ➞ "Wine A"
- * >> chosenWine([]) ➞ null
- *
- * Notes
- * All wines will be different prices, so there is no confusion in the ordering.
- */
+ // * The Frugal Gentleman
+ // * Atticus has been invited to a dinner party, and he decides to purchase a bottle of wine. However, he has little knowledge of how to choose a good bottle. Being a very frugal gentleman (yet disliking looking like a cheapskate), he decides to use a very simple rule. In any selection of two or more wines, he will always buy the second-cheapest.
+ // *
+ // * Given an array of wine objects, write a function named chosenWine that returns the name of the wine he will buy for the party. If given an empty array, return null. If given an array of only one, Atticus will buy that wine.
+ // *
+ // * Examples
+ // *
+ // * >> chosenWine([
+ // *        { name: "Wine A", price: 8.99 },
+ // *        { name: "Wine 32", price: 13.99 },
+ // *        { name: "Wine 9", price: 10.99 }
+ // *    ]) ➞ "Wine 9"
+ // * >> chosenWine([{ name: "Wine A", price: 8.99 }]) ➞ "Wine A"
+ // * >> chosenWine([]) ➞ null
+ // *
+ // * Notes
+ // * All wines will be different prices, so there is no confusion in the ordering.
+ // */
 
 
 /**
