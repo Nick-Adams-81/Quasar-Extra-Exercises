@@ -14,7 +14,7 @@ function minMax(input) {
     return [Math.min.apply(Math, input), Math.max.apply(Math, input)];
 }
 
-var someArr = [5, 2, 1, 7, 12];
+var someArr = [5, 2, 1, 7, 10];
 
 //console.log(minMax(someArr));
 /**
@@ -33,15 +33,21 @@ var someArr = [5, 2, 1, 7, 12];
  * Numbers in the array should not repeat.
  * The original order must be maintained.
  */
-function filterArray(arr) {
-    if (typeof arr === 'number') {
-        return arr
-    }
 
+function filterArray(arr) {
+    let filteredArray = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (typeof arr[i] === "number") {
+            filteredArray.push(arr[i])
+        }
+    }
+    return filteredArray
 }
+
 
 array = [1, 3, '6', 9, 'asdf', 'hello']
 var nums = array.filter(filterArray)
+//console.log(filterArray(array))
 //console.log(array)
 //console.log(nums);
 /**
@@ -59,16 +65,16 @@ var nums = array.filter(filterArray)
 function isAvgWhole(arr) {
     var sum = 0;
     for (var i = 0; i < arr.length; i++) {
-        sum += parseInt(arr[i], 10)
+        sum += parseInt(arr[i])
     }
     var avg = sum / arr.length;
-    return avg % 2 === 0
-
+    console.log(avg)
+    return avg % 2 === 0 || avg % 1 === 0
 }
 
-// var array2 = [1, 3];
+var array2 = [5, 2, 3, 2, 4, 2];
 // console.log(array2)
-// console.log(isAvgWhole(array2));
+//console.log(isAvgWhole(array2));
 /**
  * Drink Sorting
  * You will be given an array of drinks, with each drink being an object with two properties: name and price.
@@ -84,10 +90,9 @@ function isAvgWhole(arr) {
  * >> sortDrinkByPrice(drinks) ➞ [{name: "lime", price: 10}, {name: "lemonade", price: 50}]
  */
 function sortDrinksByPrice(arr) {
-    var sortedArr = arr.sort(function (a, b) {
+    return arr.sort(function (a, b) {
         return a.price - b.price
     })
-    //console.log(sortedArr)
 }
 
 var item1 = {
@@ -106,10 +111,14 @@ var item4 = {
     name: 'apple',
     price: 30
 }
+var item5 = {
+    name: 'cherry',
+    price: 27
+}
 
 
-// someArr2 = [item1, item2, item3, item4]
-// sortDrinksByPrice(someArr2)
+someArr2 = [item1, item2, item3, item4, item5]
+//console.log(sortDrinksByPrice(someArr2));
 /**
  * Scrabble Hand
  * Given an array of scrabble tiles, create a function that outputs the maximum possible score a player can achieve by summing up the total number of points for all the tiles in their hand. Each hand contains 7 scrabble tiles.
@@ -191,19 +200,8 @@ var tiles = [
     {
         tile: 'G',
         score: 7
-    },
-    {
-        tile: 'H',
-        score: 8
-    },
-    {
-        tile: 'I',
-        score: 9
-    },
-    {
-        tile: 'J',
-        score: 10
     }
+
 ]
 
 function maxScore(arr) {
@@ -254,7 +252,7 @@ function arrayOfMultiples(num, len) {
     return arr;
 }
 
-//console.log(arrayOfMultiples(12, 10));
+//console.log(arrayOfMultiples(7, 5));
 /**
  * Get Sum of People's Budget
  * Create the function named getBudgets that takes an array with objects and returns the sum of people's budgets.
@@ -304,16 +302,19 @@ function getBudgets(items) {
  *    // Index 3 has an even number 8.
  */
 
-// var arr = [2, 7, 4, 9, 1, 6, 1, 6, 3];
-// function isSpecialArray(input) {
-//     for(var i = 0; i < input.length; i++){
-//        console.log(input[i] % 2 === 0);
-//
-//     }
-//
-// }
-//
-// isSpecialArray(arr);
+var arr = [2, 7, 4, 9, 6, 1, 6, 3];
+
+function isSpecialArray(input) {
+    var specialArray = []
+    for (var i = 0; i < input.length; i++) {
+        specialArray.push(input[i] % 2 === 0);
+
+
+    }
+    console.log(specialArray)
+}
+
+//isSpecialArray(arr);
 /**
  * Remove Duplicates from an Array
  * Create a function named removeDuplicates that takes an array of items, removes all duplicate items and returns a new array in the same sequential order as the old array (minus duplicates).
@@ -329,7 +330,7 @@ function getBudgets(items) {
  * Each array item is unique.
  */
 
-var someArray = [1, 0, 1, 0];
+var someArray = [1, 0, 1, 0, 5, 7, 7];
 
 function removeDuplicates(array) {
     var arr = []
@@ -354,12 +355,19 @@ function removeDuplicates(array) {
  * All of the letters in the input list will always be lowercase.
  */
 function mapping(input) {
-    input.forEach(function (newInput) {
-        console.log(newInput + ": " + newInput.toUpperCase())
-    })
-}
+    var data = ''
+    var obj = {}
 
-//mapping(['a', 'b', 'c', 'x', 'y', 'z']);
+    for (var i = 0; i < input.length; i++) {
+        var lowerCaseInput = input[i].toLowerCase()
+        var upperCaseInput = input[i].toUpperCase()
+        data += lowerCaseInput + ': ' + upperCaseInput + ', '
+    }
+    obj.body = data
+    return obj
+}
+var testArr = ['A', 'b', 'c', 'x', 'y', 'z']
+//console.log(mapping(testArr));
 
 /**
  * Can You Spare a Square?
@@ -393,9 +401,9 @@ function tpChecker(arg) {
 
 var tpObj = {
     people: 10,
-    tp: 5
+    tp: 10
 }
-//console.log(tpChecker(tpObj));
+console.log(tpChecker(tpObj));
 
 //* Get Student Top Notes
 //* Create a function named getStudentTopNotes that takes an array of students and returns an array of their top notes.
@@ -422,13 +430,13 @@ var studentTopNotes = [
 ]
 
 function getStudentsTopNotes(arg) {
-var topNote = []
+    var topNote = []
     for (var i = 0; i < arg.length; i++) {
-        notes = arg[i].notes
-        topNote.push( Math.max(...notes))
+        var notes = arg[i].notes
+        topNote.push(Math.max(...notes))
         //console.log(topNote)
     }
-    return Number(topNote.join(''))
+    return topNote
 }
 
 console.log(getStudentsTopNotes(studentTopNotes));
@@ -445,7 +453,11 @@ var chosenWine = ([
     {name: "Wine A", price: 8.99},
     {name: "Wine 32", price: 13.99},
     {name: "Wine 9", price: 10.99}
-])  //"Wine 9"
+])
+var testWine = ([
+    {name: 'horid wine', price: 32.75}
+])
+//"Wine 9"
 // * >> chosenWine([{ name: "Wine A", price: 8.99 }]) ➞ "Wine A"
 // * >> chosenWine([]) ➞ null
 // *
@@ -454,8 +466,11 @@ var chosenWine = ([
 // */
 
 function secondMax(arr) {
+    if(arr === undefined) return null
+
     var array = []
     for (var i = 0; i < arr.length; i++) {
+        if(arr.length === 1) return arr[i].price
         var price = arr[i].price
         array.unshift(price)
     }
@@ -483,7 +498,7 @@ function addressToObject(str) {
     return newStreetNum
 }
 
-console.log(addressToObject('123 sunny lane'));
+//console.log(addressToObject('123 sunny lane'));
 /**
  * Count total pets
  * Write a function named totalPets that accepts an array of objects where each object represents a person, and has a 'pets' property for their owned pets. The function should return the sum of every object's numPets property.
@@ -513,4 +528,4 @@ function totalPet(arr) {
     return sum
 }
 
-console.log(totalPet(totalPets));
+//console.log(totalPet(totalPets));
