@@ -283,7 +283,7 @@ var people = ([
 function getBudgets(items) {
     var total = 0
     for (let i = 0; i < items.length; i++) {
-         total = total + items[i].budget
+        total = total + items[i].budget
     }
     return total
 }
@@ -407,7 +407,7 @@ var studentTopNotes = [
     {
         id: 1,
         name: "Jacek",
-        notes: [5, 3, 4, 2, 5, 5]
+        notes: [5, 3, 4, 2, 5, 7]
     },
     {
         id: 2,
@@ -422,15 +422,16 @@ var studentTopNotes = [
 ]
 
 function getStudentsTopNotes(arg) {
-    arg.forEach(function (note) {
-        // notes is the array we want to work with
-        var notes = note.notes
-        var topNote = Math.max(...notes)
-        console.log(topNote)
-    })
+var topNote = []
+    for (var i = 0; i < arg.length; i++) {
+        notes = arg[i].notes
+        topNote.push( Math.max(...notes))
+        //console.log(topNote)
+    }
+    return Number(topNote.join(''))
 }
 
-//getStudentsTopNotes(studentTopNotes);
+console.log(getStudentsTopNotes(studentTopNotes));
 
 
 // * The Frugal Gentleman
@@ -441,10 +442,10 @@ function getStudentsTopNotes(arg) {
 // * Examples
 // *
 var chosenWine = ([
-        { name: "Wine A", price: 8.99 },
-        { name: "Wine 32", price: 13.99 },
-        { name: "Wine 9", price: 10.99 }
-    ])  //"Wine 9"
+    {name: "Wine A", price: 8.99},
+    {name: "Wine 32", price: 13.99},
+    {name: "Wine 9", price: 10.99}
+])  //"Wine 9"
 // * >> chosenWine([{ name: "Wine A", price: 8.99 }]) ➞ "Wine A"
 // * >> chosenWine([]) ➞ null
 // *
@@ -452,15 +453,15 @@ var chosenWine = ([
 // * All wines will be different prices, so there is no confusion in the ordering.
 // */
 
- function secondMax(arr){
+function secondMax(arr) {
     var array = []
-    for(var i = 0; i< arr.length; i++) {
+    for (var i = 0; i < arr.length; i++) {
         var price = arr[i].price
         array.unshift(price)
     }
-     var max = Math.max.apply(null, array)
-     array.splice(array.indexOf(max), 1)
-     return Math.max.apply(null, array)
+    var max = Math.max.apply(null, array)
+    array.splice(array.indexOf(max), 1)
+    return Math.max.apply(null, array)
 }
 
 console.log(secondMax(chosenWine));
@@ -475,8 +476,8 @@ console.log(secondMax(chosenWine));
  * >> convertAddressToObject('5408 Villa Nueva') ➞ {streetNumber: '5408', streetName: 'Villa Nueva'}
  */
 function addressToObject(str) {
-    var split =  str.split(' ')
-    for(var i = 0; i < split.length; i++) {
+    var split = str.split(' ')
+    for (var i = 0; i < split.length; i++) {
         var newStreetNum = {'streetNumber': split[0], 'streetName': split[1] + ' ' + split[2]}
     }
     return newStreetNum
