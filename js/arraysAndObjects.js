@@ -215,7 +215,7 @@ function maxScore(arr) {
 }
 
 // console.log(maxScore(tiles));
-console.log(maxScore(maximumScore));
+//console.log(maxScore(maximumScore));
 
 /**
  * Converting Objects to Arrays
@@ -281,13 +281,14 @@ var people = ([
 
 
 function getBudgets(items) {
+    var total = 0
     for (let i = 0; i < items.length; i++) {
-        var total = items[0].budget + items[1].budget + items[2].budget
+         total = total + items[i].budget
     }
     return total
 }
 
-console.log(getBudgets(people));
+//console.log(getBudgets(people));
 /**
  * Special Arrays
  * An array is special if every even index contains an even number and every odd index contains an odd number.
@@ -337,7 +338,7 @@ function removeDuplicates(array) {
     })
 }
 
-console.log(removeDuplicates(someArray));
+//console.log(removeDuplicates(someArray));
 
 /**
  * Lowercase and Uppercase Map
@@ -358,7 +359,7 @@ function mapping(input) {
     })
 }
 
-mapping(['a', 'b', 'c', 'x', 'y', 'z']);
+//mapping(['a', 'b', 'c', 'x', 'y', 'z']);
 
 /**
  * Can You Spare a Square?
@@ -394,7 +395,7 @@ var tpObj = {
     people: 10,
     tp: 5
 }
-console.log(tpChecker(tpObj));
+//console.log(tpChecker(tpObj));
 
 //* Get Student Top Notes
 //* Create a function named getStudentTopNotes that takes an array of students and returns an array of their top notes.
@@ -429,7 +430,7 @@ function getStudentsTopNotes(arg) {
     })
 }
 
-getStudentsTopNotes(studentTopNotes);
+//getStudentsTopNotes(studentTopNotes);
 
 
 // * The Frugal Gentleman
@@ -439,11 +440,11 @@ getStudentsTopNotes(studentTopNotes);
 // *
 // * Examples
 // *
-// * >> chosenWine([
-// *        { name: "Wine A", price: 8.99 },
-// *        { name: "Wine 32", price: 13.99 },
-// *        { name: "Wine 9", price: 10.99 }
-// *    ]) ➞ "Wine 9"
+var chosenWine = ([
+        { name: "Wine A", price: 8.99 },
+        { name: "Wine 32", price: 13.99 },
+        { name: "Wine 9", price: 10.99 }
+    ])  //"Wine 9"
 // * >> chosenWine([{ name: "Wine A", price: 8.99 }]) ➞ "Wine A"
 // * >> chosenWine([]) ➞ null
 // *
@@ -451,6 +452,19 @@ getStudentsTopNotes(studentTopNotes);
 // * All wines will be different prices, so there is no confusion in the ordering.
 // */
 
+ function secondMax(arr){
+    var array = []
+    for(var i = 0; i< arr.length; i++) {
+        var price = arr[i].price
+        array.unshift(price)
+    }
+     var max = Math.max.apply(null, array)
+     array.splice(array.indexOf(max), 1)
+     return Math.max.apply(null, array)
+
+}
+
+console.log(secondMax(chosenWine));
 
 /**
  * Convert Address to Object
@@ -461,8 +475,11 @@ getStudentsTopNotes(studentTopNotes);
  * >> convertAddressToObject('8626 Sunny Oaks') ➞ {streetNumber: '8646', streetName: 'Sunny Oaks'}
  * >> convertAddressToObject('5408 Villa Nueva') ➞ {streetNumber: '5408', streetName: 'Villa Nueva'}
  */
+function addressToObject(arr) {
 
+}
 
+//console.log(addressToObject('123 sunny lane'));
 /**
  * Count total pets
  * Write a function named totalPets that accepts an array of objects where each object represents a person, and has a 'pets' property for their owned pets. The function should return the sum of every object's numPets property.
@@ -492,4 +509,4 @@ function totalPet(arr) {
     return sum
 }
 
-console.log(totalPet(totalPets));
+//console.log(totalPet(totalPets));
