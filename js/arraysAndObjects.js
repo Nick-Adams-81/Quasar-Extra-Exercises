@@ -461,7 +461,6 @@ var chosenWine = ([
      var max = Math.max.apply(null, array)
      array.splice(array.indexOf(max), 1)
      return Math.max.apply(null, array)
-
 }
 
 console.log(secondMax(chosenWine));
@@ -475,11 +474,15 @@ console.log(secondMax(chosenWine));
  * >> convertAddressToObject('8626 Sunny Oaks') ➞ {streetNumber: '8646', streetName: 'Sunny Oaks'}
  * >> convertAddressToObject('5408 Villa Nueva') ➞ {streetNumber: '5408', streetName: 'Villa Nueva'}
  */
-function addressToObject(arr) {
-
+function addressToObject(str) {
+    var split =  str.split(' ')
+    for(var i = 0; i < split.length; i++) {
+        var newStreetNum = {'streetNumber': split[0], 'streetName': split[1] + ' ' + split[2]}
+    }
+    return newStreetNum
 }
 
-//console.log(addressToObject('123 sunny lane'));
+console.log(addressToObject('123 sunny lane'));
 /**
  * Count total pets
  * Write a function named totalPets that accepts an array of objects where each object represents a person, and has a 'pets' property for their owned pets. The function should return the sum of every object's numPets property.
@@ -503,10 +506,10 @@ var totalPets = ([
 function totalPet(arr) {
     var sum = 0
     for (let i = 0; i < arr.length; i++) {
-        console.log(arr[i].pets)
+        //console.log(arr[i].pets)
         sum = sum + arr[i].pets
     }
     return sum
 }
 
-//console.log(totalPet(totalPets));
+console.log(totalPet(totalPets));
