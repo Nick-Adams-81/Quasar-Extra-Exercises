@@ -14,8 +14,9 @@ function minMax(input) {
     return [Math.min.apply(Math, input), Math.max.apply(Math, input)];
 }
 
-// var someArr = [5, 2, 1, 7, 12];
-// console.log(minMax(someArr));
+var someArr = [5, 2, 1, 7, 12];
+
+//console.log(minMax(someArr));
 /**
  * Filter out Strings from an Array
  * Create a function named filterArray that takes an array of non-negative integers and strings and return a new array without the strings.
@@ -33,13 +34,16 @@ function minMax(input) {
  * The original order must be maintained.
  */
 function filterArray(arr) {
-    return typeof arr == 'number';
+    if (typeof arr === 'number') {
+        return arr
+    }
 
 }
 
-// array = [1, 3, '6', 9, 'asdf', 'hello']
-// console.log(array)
-// console.log(array.filter(filterArray));
+array = [1, 3, '6', 9, 'asdf', 'hello']
+var nums = array.filter(filterArray)
+//console.log(array)
+//console.log(nums);
 /**
  * Is the Average of All Elements a Whole Number?
  * Create a function named isAvgWhole that takes an array as an argument and returns true or false depending on whether the average of all elements in the array is a whole number or not.
@@ -204,13 +208,13 @@ var tiles = [
 
 function maxScore(arr) {
     var total = 0;
-    for (var i = 0; i < 7; i++) {
+    for (var i = 0; i < arr.length; i++) {
         total = total + arr[i].score
     }
     return total;
 }
 
-console.log(maxScore(tiles));
+// console.log(maxScore(tiles));
 console.log(maxScore(maximumScore));
 
 /**
@@ -250,7 +254,7 @@ function arrayOfMultiples(num, len) {
     return arr;
 }
 
-console.log(arrayOfMultiples(12, 10));
+//console.log(arrayOfMultiples(12, 10));
 /**
  * Get Sum of People's Budget
  * Create the function named getBudgets that takes an array with objects and returns the sum of people's budgets.
@@ -388,7 +392,7 @@ function tpChecker(arg) {
 
 var tpObj = {
     people: 10,
-    tp: 50
+    tp: 5
 }
 console.log(tpChecker(tpObj));
 
@@ -423,7 +427,6 @@ function getStudentsTopNotes(arg) {
         var topNote = Math.max(...notes)
         console.log(topNote)
     })
-
 }
 
 getStudentsTopNotes(studentTopNotes);
@@ -472,3 +475,21 @@ getStudentsTopNotes(studentTopNotes);
  *       {name: 'Kenneth Howell', pets: 2}
  *    ]) ➞ 11
  */
+
+
+var totalPets = ([
+    {name: 'Fernando Mendoza', pets: 1},
+    {name: 'Douglas Hirsh', pets: 8},
+    {name: 'Kenneth Howell', pets: 2}
+])
+
+function totalPet(arr) {
+    var sum = 0
+    for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i].pets)
+        sum = sum + arr[i].pets
+    }
+    return sum
+}
+
+console.log(totalPet(totalPets));
